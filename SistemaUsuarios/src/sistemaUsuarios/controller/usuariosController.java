@@ -5,6 +5,7 @@ import java.util.List;
 
 import sistemaUsuarios.model.Usuario;
 import sistemaUsuarios.repository.usuariosRepository;
+import sistemaUsuarios.util.Cores;
 
 public class usuariosController implements usuariosRepository {
 	
@@ -42,22 +43,22 @@ public class usuariosController implements usuariosRepository {
 		
 		
 		if (usuario.getNome().isEmpty()) {
-			System.out.printf("Usuário %d não foi criado, pois nome está vazio. %n", usuario.getNumero());
+			System.out.printf(Cores.TEXT_RESET + Cores.TEXT_RED+"Usuário %d não foi criado, pois nome está vazio. %n", usuario.getNumero());
 		}
 			else if(usuario.getEmail().isEmpty()) {
-				System.out.printf("O e-mail está vazio, preencha com um e-mail válido");
+				System.out.printf(Cores.TEXT_RESET +  Cores.TEXT_RED+"O e-mail está vazio, preencha com um e-mail válido"+ Cores.TEXT_RESET);
 				
 			}else if(!usuario.getEmail().matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
 				
-				System.out.printf("Usuário %d não foi criado, O e-mail é inválido, por favor digite um e-mail válido.", usuario.getNumero() );
+				System.out.printf(Cores.TEXT_RED+"Usuário %d não foi criado, O e-mail é inválido, por favor digite um e-mail válido."+ Cores.TEXT_RESET, usuario.getNumero() );
 			}else {
-				System.out.printf("Usuário %d criado %n", usuario.getNumero());
+				System.out.printf(Cores.TEXT_CYAN+"Usuário %d criado %n" + Cores.TEXT_RESET, usuario.getNumero() );
 				listaUsuario.add(usuario);
 			}
 		
 		
             
-
+ 
         } 
 	
 	
@@ -76,7 +77,7 @@ public class usuariosController implements usuariosRepository {
 			 if (usuario.getNome().isEmpty()) {
 				 
 				 			
-					System.out.printf("Usuário está sem nome! %n");
+					System.out.printf(Cores.TEXT_RED+"Usuário está sem nome! %n"+ Cores.TEXT_RESET);
 					
 					
 
@@ -86,14 +87,14 @@ public class usuariosController implements usuariosRepository {
 			 
 			 
 			 if (usuario.getEmail().isEmpty()) {
-		            System.out.println("O e-mail está vazio/nulo ");
+		            System.out.println(Cores.TEXT_RED+"O e-mail está vazio/nulo "+ Cores.TEXT_RESET);
 		            
 
 		        }  else if (!usuario.getEmail().matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
-		            System.out.println("O e-mail está em formato inválido! ");
+		            System.out.println(Cores.TEXT_RED+"O e-mail está em formato inválido! "+ Cores.TEXT_RESET);
 
 		        } else {
-		        	System.out.println("Usuário Validado com Sucesso! ");
+		        	System.out.println(Cores.TEXT_CYAN+ "Usuário Validado com Sucesso! "+ Cores.TEXT_RESET);
 		            
 		        }
 		}
