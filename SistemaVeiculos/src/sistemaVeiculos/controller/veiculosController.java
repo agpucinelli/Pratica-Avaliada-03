@@ -67,7 +67,7 @@ public class veiculosController implements veiculosRepository {
 		
 		
 		
-		if(consumoBateria>carro.getNivelBateria()) 
+		if(consumoBateria>carro.getNivelBateria() || consumoBateria<0 ) 
 		{
 			System.out.println("Bateria insuficiente");
 		}else {
