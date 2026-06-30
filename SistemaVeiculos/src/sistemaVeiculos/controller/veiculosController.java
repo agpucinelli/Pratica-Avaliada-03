@@ -57,6 +57,9 @@ public class veiculosController implements veiculosRepository {
 		if(carro.getNivelBateria()<=0) {
 			System.out.println(Cores.TEXT_RED_BOLD + "Erro no valor do nível de bateria está negativo."+ Cores.TEXT_RESET);
 		}
+		if(carro.getNivelBateria()>100) {
+			System.out.println(Cores.TEXT_RED_BOLD + "Erro no valor do nível de bateria está maior que 100%."+ Cores.TEXT_RESET);
+		}
 		
 		
 		System.out.println("MODELO DO VEICULO: " + carro.getModelo());
